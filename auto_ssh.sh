@@ -75,8 +75,8 @@ function main(){
        # Delete existing  ip and ket from hosts known file
        sed -i "/$os_ip/d" ~/.ssh/known_hosts
 	   os_user=$(echo $line  | awk -F'|' '{ print $2}')
-	   os_pass=$(echo $line  | awk -F'|' '{ print $2}')
-	   os_port=$(echo $line  | awk -F'|' '{ print $2}')
+	   os_pass=$(echo $line  | awk -F'|' '{ print $3}')
+	   os_port=$(echo $line  | awk -F'|' '{ print $4}')
 	   auto_copyid $keypath $os_user $os_ip $os_pass $os_port
         done < ip.txt
 }
